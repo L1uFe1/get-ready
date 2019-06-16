@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax</title>
+</head>
+<body>
+    
+
+
+    <script>
+    //原生ajax
+    //1.创建Ajax
+    // var ajax =  new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    if(window.XMLHttpRequest){
+        var ajax = new XMLHttpRequest();
+    }else{
+        var ajax = new ActiveXObject('Microsoft.XMLHTTP');
+    }
+    // console.log(ajax);
+
+    // 2.连接到服务器
+    ajax.open('GET','https://www.apiopen.top/journalismApi',true);//异步(true)  同步(false)
+
+    ajax.send();
+
+    ajax.onreadystatechange =function(){
+        console.log(ajax.readyState,ajax.status);
+        if(ajax.readyState == 4 && ajax.status == 200){
+            // console.log(ajax.response);
+            console.log(JSON.parse(ajax.response));
+            
+        }
+        else{
+            console.log('err...')
+        }
+    }
+    </script>
+</body>
+</html>

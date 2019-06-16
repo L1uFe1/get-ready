@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #ipt {
+            margin: 30px 20px;
+            margin-bottom: 0;
+        }
+
+        #list {
+            width: 200px;
+            list-style: none;
+            margin-left: 20px;
+            background: #ccc;
+        }
+
+        #list>li {
+            color: rebeccapurple;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" oninput="getdata()" id="ipt">
+    <!-- <button onclick="cb()">获取</button> -->
+    <!-- http://suggest.taobao.com/sug?code=utf-8&q=衣服&callback=cb -->
+
+    <ul id="list">
+
+    </ul>
+
+    <script>
+        //  let cb = (data)=>{
+        //     console.log(data)
+        // }
+        function cb(data) {
+            // console.log(data);
+            let res = data.result;
+            // console.log(res);
+            let lis = '';
+            for (let i = 0; i < res.length; i++) {
+                lis += '<li>' + res[i][0] + '</li>'
+            }
+
+            document.getElementById('list').innerHTML = lis;
+        }
+
+        function getdata() {
+
+            let iptv = document.getElementById('ipt').value;
+            // console.log(iptv);
+
+            let script_ = document.createElement('script');
+            script_.src = 'http://suggest.taobao.com/sug?code=utf-8&q=' + iptv + '&callback=cb'
+            // console.log(script_);
+            document.body.appendChild(script_);
+            document.body.removeChild(script_);
+
+        }
+
+    </script>
+</body>
+
+</html>

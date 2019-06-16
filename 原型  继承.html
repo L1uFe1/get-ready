@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+</head>
+
+<body>
+
+
+    <script>
+   
+
+
+        function Person() {
+            this.name = 'liuliu';
+            this.age = 21;
+            this.say = function () {
+                console.log('66的话');
+            }
+        }
+         
+        function Student(){
+            this.foot = 2,
+            this.head = 1
+        }
+        
+        Person.prototype = new Student();
+        console.log(Person.prototype.constructor);
+        Person.prototype.constructor = Person;   
+        console.log(Person.prototype.constructor);
+
+
+        // var per1 = new Person();
+        // console.log(per1.foot);
+
+
+        // call()   A.call(B,arg1,.,.,.,..)
+
+        function Student(name,age){
+            this.head = 1,
+            this.foot = 2,
+            this.name = name,
+            this.age = age
+        }
+        function Person(num,sex){
+            Student.call(this,'莉莉',26);
+
+            this.num = num,
+            this.sex = sex
+        }
+
+        var per1 = new Person(60,'women');
+        console.log(per1);
+
+
+        // apply()
+
+            
+        function Student(name,age){
+            this.head = 1,
+            this.foot = 2,
+            this.name = name,
+            this.age = age
+        }
+        function Person(num,sex,name,age){
+            Student.apply(this,[name,age]);
+
+            this.num = num,
+            this.sex = sex
+        }
+
+        var per2 = new Person(60,'women','阿文',18);
+        console.log(per2);
+    </script>
+</body>
+
+</html>

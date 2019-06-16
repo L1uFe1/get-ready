@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>aaaa</title>
+</head>
+
+<body>
+    <input type="text" class="iptt">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <button>点击</button>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script>
+        $('button').on('click', function () {
+            var arr = [];
+            for (let i = 0; i < $('input').length; i++) {
+                var ipt = $('input');
+                if (ipt[i].value == '') {
+                    arr.push(i);
+                }
+            }
+            alert(arr);
+        })
+    </script>
+</body>
+
+</html>

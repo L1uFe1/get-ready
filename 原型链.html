@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型链</title>
+</head>
+<body>
+    
+
+    <script>
+    // constructor属性指向(返回)对象的构造函数
+    // prototype :函数的原型对象
+    // __proto__ :属性指向(返回)实例化出来的对象(nike)的原型对象
+
+    function Person(){
+        this.Head = 1
+    }
+    var nike = new Person();
+    console.log(Person.prototype === nike.__proto__);
+
+    
+    
+    </script>
+</body>
+</html>

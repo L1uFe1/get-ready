@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+     <div id="box">
+        <p>从vuex中获取的num:{{getnum}}</p>
+        <button @click="add()">+</button>
+        <button @click="rec()">-</button>
+        <children></children>
+     </div>
+
+
+    <script src="./js/vue.js"></script>
+    <script src="./js/vuex.3.0.1.js"></script>
+    <script>
+         const store = new Vuex.Store({
+            state:{
+                num:1111
+            },
+            mutations:{
+                ad(state,val){
+                    console.log(state,val);
+                    state.num+=val;
+                },
+                re(state,val){
+                    console.log(state,val);
+                    state.num-=val;
+                }
+            },
+            getters:{
+
+            }
+        })
+    
+
+        new Vue({
+            el:"#box",
+            data:{
+
+            },
+            store:store,
+            methods:{
+                add(){
+                    this.$store.commit('ad',10);
+                },
+                rec(){
+                    this.$store.commit('re',100);
+                }
+            },
+            computed: {
+                getnum(){
+                    return this.$store.state.num;
+                }
+            },
+            components:{
+                children:{
+                    template:'<div>child组件:{{getnum_c}}</div>',
+                    computed:{
+                        getnum_c(){
+                            return this.$store.state.num;
+                        }
+                    }
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
