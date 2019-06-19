@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>axios</title>
+</head>
+
+<body>
+    <div id="box">
+        <button @click="f1">请求get</button>
+        <button @click="post">请求post</button>
+        <h1>{{time}}</h1>
+    </div>
+
+
+    <script src="./js/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var vue = new Vue({
+            el: "#box",
+            data: {
+                time:new Date().getTime()
+            },
+            methods: {
+                f1() {
+                    // axios.get('https://api.apiopen.top/todayVideo')
+                    // .then(function(res){
+                    //     console.log(res.data.result);
+                    // })
+                    // .catch(function(err){
+                    //     console.log(err);
+                    // });
+
+
+                    axios.get('https://api.apiopen.top/getSingleJoke', {
+                        params: {
+                            sid: 28654780
+                        }
+                    })
+                        .then(function (res) {
+                            console.log(res.data.result);
+                        })
+                        .catch(function (err) {
+                            console.log(err);
+                        });
+                },
+                post() {
+                    axios.post('https://api.apiopen.top/getSingleJoke', {
+                        sid: 28654780
+                    })
+                        .then(function (data) {
+                            console.log(data);
+                        })
+                        .catch(function (err) {
+                            console.log(err);
+                        });
+                }
+            },
+        })
+
+    </script>
+</body>
+
+</html>

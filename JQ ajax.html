@@ -14,14 +14,23 @@
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
     <script>
         $.ajax({
-            type:'get',
-            url:'https://www.apiopen.top/journalismApi',
-            dataType:'json',
-            success:function(res){
+            type: 'get',
+            url: 'https://www.apiopen.top/journalismApi',
+            dataType: 'json',
+            success: function (res) {
                 console.log(res);
             }
         })
 
+
+        // $.ajax({
+        //     type: "POST",
+        //     url: "some.php",
+        //     data: "name=John&location=Boston",
+        //     success: function (msg) {
+        //         alert("Data Saved: " + msg);
+        //     }
+        // });
 
 
     </script>
