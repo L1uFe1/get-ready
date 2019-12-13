@@ -27,7 +27,7 @@
     ajax.send();
 
     ajax.onreadystatechange =function(){
-        console.log(ajax.readyState,ajax.status);
+        // console.log(ajax.readyState,ajax.status);
         if(ajax.readyState == 4 && ajax.status == 200){
             // console.log(ajax.response);
             console.log(JSON.parse(ajax.response));
